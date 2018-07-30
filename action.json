@@ -1,0 +1,49 @@
+{
+  "actions": [
+    {
+      "description": "Default Welcome Intent",
+      "name": "MAIN",
+      "fulfillment": {
+        "conversationName": "ActionsSDKconDayron"
+      },
+      "intent": {
+        "name": "actions.intent.MAIN",
+        "trigger": {
+          "queryPatterns": [
+            "talk to mar"
+          ]
+        }
+      }
+    },
+    {
+      "name": "BUY",
+      "intent": {
+        "name": "com.co.ActionsSDKconDayron.BUY",
+        "parameters": [{
+          "name": "color",
+          "type": "org.schema.type.Color"
+        }],
+        "trigger": {
+          "queryPatterns": [
+            "find some $org.schema.type.Color:color sneakers",
+            "buy some blue suede shoes",
+            "get running shoes",
+            "buy shoes",
+            "get shoes"
+          ]
+        }
+      },
+      "fulfillment": {
+        "conversationName": "ActionsSDKconDayron"
+      }
+    }
+  ],
+  "conversations": {
+    "ActionsSDKconDayron": {
+      "name": "ActionsSDKconDayron",
+      "url": "https://us-central1-actionssdkcondayron.cloudfunctions.net/myfunction",
+      "fulfillmentApiVersion": 2
+    }
+  },
+  "locale": "en"
+}
